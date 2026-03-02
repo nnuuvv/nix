@@ -7,7 +7,7 @@ Cloning the `nix` branch using `jj` from the Strawmelonjuice forge:
 nix shell nixpkgs#git nixpkgs#jujutsu --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Clone the dotfiles
-jj git clone https://forge.strawmelonjuice.com/strawmelonjuice/nix.git -b main --no-colocate ~/.dotfiles
+jj git clone https://forge.strawmelonjuice.com/strawmelonjuice/nix.git -b main ~/.dotfiles
 
 cd ~/.dotfiles
 # Set origin correctly for dotfiles, assuming you by the time you push again have the keys.
