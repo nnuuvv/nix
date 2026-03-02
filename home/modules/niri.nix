@@ -10,6 +10,7 @@
     wev
     kdePackages.krunner
     kdePackages.kdeconnect-kde
+    kdePackages.qttools
     gnome-console
     gnome-keyring
     pavucontrol
