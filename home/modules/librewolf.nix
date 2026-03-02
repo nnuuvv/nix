@@ -1,8 +1,12 @@
-{ pkgs, inputs, ... }:
-
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   programs.librewolf = {
     enable = true;
+    package = pkgs.librewolf-bin;
     settings = {
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.downloads" = false;

@@ -21,7 +21,7 @@
 
   home.username = "mar";
   home.homeDirectory = "/home/mar";
-  home.stateVersion = "24.11"; # Ensure this matches your NixOS version
+  home.stateVersion = "25.11"; # Ensure this matches your NixOS version
 
   home.packages = with pkgs; [
     coreutils

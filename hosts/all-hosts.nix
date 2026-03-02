@@ -1,10 +1,24 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 {
 
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "librewolf-bin-147.0.3-2"
+      "librewolf-bin-unwrapped-147.0.3-2"
+    ];
+
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      stable = import <nixpkgs-stable> {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
   environment.variables = {
     GTK_IM_MODULE = lib.mkForce null;
     QT_IM_MODULE = lib.mkForce null;

@@ -77,44 +77,8 @@
     #media-session.enable = true;
   };
 
-  # Enable librewolf
-  # programs.firefox = {
-  #   enable = true;
-  #   package = pkgs.librewolf;
-  #   policies = {
-  #     DisableTelemetry = true;
-  #     DisableFirefoxStudies = true;
-  #     Preferences = {
-  #       "cookiebanners.service.mode.privateBrowsing" = 2;
-  #       "cookiebanners.service.mode" = 2;
-  #        "privacy.clearOnShutdown.history" = false;
-  #     "privacy.clearOnShutdown.downloads" = false;
-  #     "privacy.clearOnShutdown.cookies" = false;
-  #     "middlemouse.paste" = false;
-  #     "general.autoscroll" = true;
-  #     "privacy.resistFingerprinting" = false;
-  #     "privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts" = true;
-  #     };
-  #     ExtensionSettings = {
-  #       "jid1-ZAdIEUB7XOzOJw@jetpack" = {
-  #         install_url = "https://addons.mozilla.org/firefox/downloads/latest/duckduckgo-for-firefox/latest.xpi";
-  #         installation_mode = "force_installed";
-  #       };
-  #       "uBlock0@raymondhill.net" = {
-  #         install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-  #         installation_mode = "force_installed";
-  #       };
-  #     };
-  #   };
-  # };
-
-  # environment.etc."firefox/policies/policies.json".target = "librewolf/policies/policies.json";
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
