@@ -8,8 +8,6 @@
 
   nixpkgs.config = {
     permittedInsecurePackages = [
-      "librewolf-bin-147.0.3-2"
-      "librewolf-bin-unwrapped-147.0.3-2"
     ];
 
     allowUnfree = true;

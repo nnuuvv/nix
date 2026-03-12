@@ -6,7 +6,7 @@
 {
   programs.librewolf = {
     enable = true;
-    package = pkgs.librewolf-bin;
+    # package = pkgs.librewolf-bin;
     settings = {
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.downloads" = false;
@@ -70,12 +70,12 @@
       };
       settings = {
         "extensions.autoDisableScopes" = 0;
-        "browser.startup.homepage" = "https://strawmelonjuice.com/#/startpage/";
+        "browser.startup.homepage" = "https://strawmelonjuice.com/startpage/";
         "general.useragent.locale" = "en-GB";
         "browser.newtabpage.pinned" = [
           {
             title = "My home";
-            url = "https://strawmelonjuice.com/#/startpage/";
+            url = "https://strawmelonjuice.com/startpage/";
           }
         ];
       };
