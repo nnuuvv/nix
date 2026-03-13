@@ -14,7 +14,12 @@
     font-awesome
     (runCommand "lotion-fonts" { } ''
       mkdir -p $out/share/fonts/truetype/lotion
-      cp -r ${../../fonts}/Lotion*.ttf $out/share/fonts/truetype/lotion/
+      cp -r ${../../fonts/Lotion}/*.ttf $out/share/fonts/truetype/lotion/
+    '')
+
+    (runCommand "suse-font" { } ''
+      mkdir -p $out/share/fonts/truetype/suse
+      cp -r ${../../fonts/SUSE}/*.ttf $out/share/fonts/truetype/suse/
     '')
   ];
 }

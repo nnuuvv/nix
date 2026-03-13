@@ -219,11 +219,6 @@
           open-maximized = true;
         }
         {
-          matches = [ { title = "waybar"; } ];
-          open-floating = true;
-          default-column-width.proportion = 0.1;
-        }
-        {
           matches = [
             {
               app-id = "Chromium-browser";
@@ -237,6 +232,26 @@
         }
         {
           matches = [
+            {
+              title = "heylogin";
+              app-id = "^-kghbmcgihmefcbjlfiafjcigdcbmecbf__globalSearch.html$";
+            }
+
+          ];
+          block-out-from = "screen-capture";
+          open-focused = true;
+          open-floating = true;
+          opacity = 0.95;
+          default-column-width = {
+            fixed = 480;
+          };
+          default-window-height = {
+            fixed = 270;
+          };
+
+        }
+        {
+          matches = [
             { app-id = "Spotify"; }
             { app-id = "org.gnome.Music"; }
           ];
@@ -246,19 +261,11 @@
           matches = [
             { app-id = "discord"; }
             { app-id = "org.kde.kdeconnect.app"; }
-            { app-id = "BeeperTexts"; }
             { app-id = "thunderbird"; }
             { app-id = "fluffychat"; }
             { app-id = "teams-for-linux"; }
           ];
           open-on-workspace = "💬";
-        }
-        {
-          matches = [
-            { app-id = "^org\\.keepassxc\\.KeePassXC$"; }
-            { app-id = "^org\\.gnome\\.World\\.Secrets$"; }
-          ];
-          block-out-from = "screen-capture";
         }
         {
           # This rule applies to all windows as it has no 'matches'
@@ -290,11 +297,18 @@
         };
         "Mod+Shift+B" = {
           action.spawn = "librewolf";
-          hotkey-overlay.title = "Open default browser: Librewolf";
+          hotkey-overlay.title = "Open browser: Librewolf";
         };
         "Mod+B" = {
           action.spawn = "vivaldi";
           hotkey-overlay.title = "Open browser: Vivaldi";
+        };
+        "Mod+Alt+Space" = {
+          action.spawn = [
+            "vivaldi"
+            "--app=chrome-extension://kghbmcgihmefcbjlfiafjcigdcbmecbf/globalSearch.html?searchString=&initiallyUnlocked="
+          ];
+          hotkey-overlay.title = "HeyLogin Quick Access";
         };
         "Mod+D" = {
           action.spawn = [

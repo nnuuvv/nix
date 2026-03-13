@@ -14,7 +14,6 @@
   config = {
     home.packages = [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-      pkgs.rbw
       pkgs.curl
       pkgs.wtype
       pkgs.pinentry-tty
@@ -256,11 +255,6 @@
             name = "Official Noctalia Plugins";
             url = "https://github.com/noctalia-dev/noctalia-plugins";
           }
-          {
-            enabled = true;
-            name = "Rukh Debug unofficial noctalia plugin repository";
-            url = "https://github.com/rukh-debug/noctalia-unofficial-plugins";
-          }
         ];
         states = {
           catwalk = {
@@ -274,11 +268,6 @@
           niri-overview-launcher = {
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          bitwarden-rbw-noctalia-launcher = {
-            enabled = true;
-            sourceUrl = "https://github.com/rukh-debug/noctalia-unofficial-plugins";
-
           };
         };
         version = 2;
