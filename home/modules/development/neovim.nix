@@ -1,12 +1,14 @@
 { config, pkgs, inputs, ... }:
 
 {
+  # maybe ill set up wakatime as well :think:
   # home.packages = with pkgs; [
   #   wakatime-cli
   # ];
   programs.neovim = {
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     enable = true;
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
 
@@ -58,12 +60,6 @@
       # RG
       ripgrep
     ];
-
-    initLua = ''
-      -- Prepend the symlinked directory to the Runtime Path
-      vim.opt.rtp:prepend("${config.home.homeDirectory}/.config/nvim")
-      require("init")
-    '';
   };
 
   xdg.configFile."nvim".source = ../../../configs/nvim;
