@@ -30,6 +30,9 @@
       # Node is required as runtime for some LSP's, among them css-ls and tailwindcss-ls
       nodejs
 
+      # python3 support since codestats needs it
+      (python3.withPackages (ps: [ ps.pynvim ]))
+
       # SQL linter-formatter
       sqlfluff
 
@@ -59,9 +62,12 @@
 
       # RG
       ripgrep
+
     ];
   };
 
-  # maybe once/if the lockfile can be moved elsewhere https://github.com/neovim/neovim/issues/36078
-  # xdg.configFile."nvim".source = ../../../configs/nvim;
+  xdg.configFile."nvim/after".source = ../../../configs/nvim/after;
+  xdg.configFile."nvim/lsp".source = ../../../configs/nvim/lsp;
+  xdg.configFile."nvim/lua".source = ../../../configs/nvim/lua;
+  xdg.configFile."nvim/init.lua".source = ../../../configs/nvim/init.lua;
 }
