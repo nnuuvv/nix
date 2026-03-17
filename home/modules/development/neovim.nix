@@ -62,5 +62,6 @@
     ];
   };
 
-  xdg.configFile."nvim".source = ../../../configs/nvim;
+  # maybe once/if the lockfile can be moved elsewhere https://github.com/neovim/neovim/issues/36078
+  # xdg.configFile."nvim".source = ../../../configs/nvim;
 }
