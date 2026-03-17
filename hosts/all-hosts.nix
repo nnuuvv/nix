@@ -54,6 +54,7 @@
     podman-compose
     podman-tui
     polkit_gnome
+    helvum
   ];
 
   programs.nix-ld.enable = true;
