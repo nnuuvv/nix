@@ -7,7 +7,7 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-    options = [ "--cmd cd" ];
+    options = [ "--cmd zox" ];
   };
 
   programs.fzf = {
@@ -22,8 +22,17 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      rb = "doas nixos-rebuild switch --flake ~/.dotfiles#$(hostname)";
-      ls = "ls --color";
+      to-dotfiles = "cd ~/.dotfiles || cd ~/dotfiles";
+      rb = "to-dotfiles && jj file track . && doas nixos-rebuild switch --flake ~/.dotfiles#$(hostname)";
+
+      # totally didnt steal these from mar 👀
+      ls = "eza --icons";
+      la = "eza --icons -a";
+      ll = "eza --icons -al";
+      lt = "eza --icons -a --tree --level=1";
+      v = "$EDITOR";
+      cat = "bat -p";
+      nano = "nvim";
     };
     history = {
       size = 5000;
@@ -47,25 +56,23 @@
     initContent =
       let
         zshConfigEarlyInit = lib.mkOrder 500 ''
+          hyfetch
           if [[ -r "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
               source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
           fi
         '';
         zshConfig = lib.mkOrder 1000 ''
+          # p10k --------------------------------------------------------------------------
           source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
           [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-          # Completion styling
-          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-          zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-          zstyle ':completion:*' menu no
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-          zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
         '';
+        # more complex zsh functions n such go in here since i dont wanna deal with writing those without proper lsp
+        zshConfigRest = lib.mkOrder 1100 (builtins.readFile ../../configs/.zshrc.append);
       in
       lib.mkMerge [
         zshConfigEarlyInit
         zshConfig
+        zshConfigRest
       ];
   };
 
