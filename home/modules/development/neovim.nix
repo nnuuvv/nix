@@ -68,6 +68,8 @@
       # RG
       ripgrep
 
+      # Bash language server; since, afaik, there isnt one for zsh
+      bash-language-server
     ];
   };
 
