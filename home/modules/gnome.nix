@@ -21,6 +21,9 @@
         pkgs.gnomeExtensions."all-in-one-clipboard".extensionUuid
       ];
     };
+    "org/gnome/shell" = {
+      favorite-apps = [ ];
+    };
     "org/gnome/desktop/background" = {
       picture-uri = "file:///home/liv/.local/share/wallpapers/aesthetic-wallpapers/images/pink-clouds.png";
       picture-uri-dark = "file:///home/liv/.local/share/wallpapers/aesthetic-wallpapers/images/wallhaven-9mjw78.png";
