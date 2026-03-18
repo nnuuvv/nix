@@ -71,7 +71,7 @@
           [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         '';
         # more complex zsh functions n such go in here since i dont wanna deal with writing those without proper lsp
-        zshConfigRest = lib.mkOrder 1100 (builtins.readFile ../../configs/.zshrc.append);
+        zshConfigRest = lib.mkOrder 1100 (builtins.readFile ../../configs/zshrc-append.zsh);
       in
       lib.mkMerge [
         zshConfigEarlyInit
