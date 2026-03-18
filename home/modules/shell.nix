@@ -33,6 +33,9 @@
       v = "$EDITOR";
       cat = "bat -p";
       nano = "nvim";
+
+      cd = "zox";
+      cdi = "zoxi";
     };
     history = {
       size = 5000;
@@ -51,6 +54,7 @@
         { name = "zsh-users/zsh-completions"; }
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "Aloxaf/fzf-tab"; }
+        { name = "anatolykopyl/doas-zsh-plugin"; }
       ];
     };
     initContent =
@@ -75,6 +79,8 @@
         zshConfigRest
       ];
   };
+
+  # TODO: ssh-config
 
   # TODO: add starship
 
