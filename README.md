@@ -61,6 +61,7 @@ nix:
 
 nvim:
 - breadog based theme
+- lil startup page mayhaps
 - theme switcher
 - auto theme switching (based on current os theme)
 
