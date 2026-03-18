@@ -64,6 +64,3 @@ nvim:
 - lil startup page mayhaps
 - theme switcher
 - auto theme switching (based on current os theme)
-
-wezterm: 
-- auto theme switching (based on current os theme)

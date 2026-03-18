@@ -1,32 +1,33 @@
-local get_time_of_day = function()
-    local hour = tonumber(os.date("%H"))
-    if hour >= 6 and hour < 12 then
-        -- morning
-        return "Breadog (Gogh)"
-    elseif hour >= 12 and hour < 18 then
-        -- afternoon
-        return "Breadog (Gogh)"
-    elseif hour >= 18 and hour < 24 then
-        -- evening
-        return "Catppuccin Mocha"
+local light_theme = "Breadog (Gogh)"
+local dark_theme = "Catppuccin Mocha"
+
+local wezterm = require('wezterm')
+
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+local function get_appearance()
+    if wezterm.gui then
+        return wezterm.gui.get_appearance()
+    end
+    return 'Dark'
+end
+
+local function scheme_for_appearance(appearance)
+    if appearance:find 'Light' then
+        return light_theme
     else
-        -- night
-        return "Catppuccin Mocha"
+        return dark_theme
     end
 end
 
-local wezterm = require('wezterm')
 local config = {}
 
-config.color_scheme = get_time_of_day()
-
--- config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.font = wezterm.font 'Maple Mono NF'
 config.font_size = 16
 
 config.window_close_confirmation = 'NeverPrompt'
-
 
 -- auto maximize on startup
 local mux = wezterm.mux
