@@ -48,8 +48,22 @@
         (lib.hm.gvariant.mkString "<Shift><Super>t")
       ];
     };
+
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = [ (lib.hm.gvariant.mkString "<Shift><Super>s") ];
+    };
+    "org/gnome/desktop/wm/keybindings" = {
+      close = [ (lib.hm.gvariant.mkString "<Super>q") ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "open-files";
+      binding = lib.hm.gvariant.mkString "<Super>f";
+      command = "nautilus";
+    };
+
     "org/gnome/system/location".enabled = true;
   };
+
   home.packages = with pkgs; [
     dconf-editor
     # gnomeExtensions.dash-to-dock
