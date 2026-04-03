@@ -28,6 +28,7 @@
     vivaldi
     #gnomeExtensions.gesture-improvements
     gnomeExtensions.appindicator
+    gnomeExtensions.overview-calculator
     git
   ];
 
