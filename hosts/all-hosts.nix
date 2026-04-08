@@ -56,6 +56,7 @@
     polkit_gnome
     helvum
     gnome-disk-utility
+    gnome-calculator
   ];
 
   programs.nix-ld.enable = true;
