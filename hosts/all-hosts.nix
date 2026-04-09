@@ -42,17 +42,14 @@
     "flakes"
   ];
 
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
   };
 
   environment.systemPackages = with pkgs; [
     git
     jj
-    podman-compose
-    podman-tui
+    docker-compose
     polkit_gnome
     helvum
     gnome-disk-utility
@@ -106,6 +103,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
       thunderbird
