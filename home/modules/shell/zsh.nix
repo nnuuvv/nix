@@ -22,7 +22,7 @@
       rb = "to-dotfiles && jj file track . && doas nixos-rebuild switch --flake ~/.dotfiles#$(hostname)";
 
       # totally didnt steal these from mar 👀
-      ls = "eza --icons";
+      ls = "eza --icons auto";
       la = "eza --icons -a";
       ll = "eza --icons -al";
       lt = "eza --icons -a --tree --level=1";
