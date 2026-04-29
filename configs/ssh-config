@@ -15,6 +15,7 @@ Host knot.ollie.earth
     Port 2222
 
 Host knot.strawmelonjuice.com
+    HostName 2a02:a444:3a93:0:2fb5:bf57:f2b8:dca2
     User git
     Port 2222
 
