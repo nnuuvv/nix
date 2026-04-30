@@ -57,6 +57,7 @@
     helvum
     gnome-disk-utility
     gnome-calculator
+    yubioath-flutter
   ];
 
   programs.nix-ld.enable = true;
